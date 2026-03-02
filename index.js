@@ -1,11 +1,12 @@
-// IMPORT Express Server
-const e1 = require('express');
-const app = e1();
+const express = require('express');
+const app = express();
+app.use(express.json());
 
-// HOME ROUTE
-app.get('/', (req, res) => {
-    res.send('<html><body>HOME PAGE</body></html>');
+// GET API
+app.get('/api', (req, res) => {
+    res.json({ message: 'Hello from EC2!', status: 'success' });
 });
 
-
-// test change
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
